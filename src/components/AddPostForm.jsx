@@ -1,4 +1,5 @@
 import { useFormik } from 'formik';
+import * as Yup from 'yup';
 
 function AddPostForm(props) {
   const formik = useFormik({

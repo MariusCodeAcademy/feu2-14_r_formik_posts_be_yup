@@ -29,3 +29,9 @@
 3. initialValues: pradindes input reiksmes
 4. onSubmit - kas vyks pateikiant forma
 5. susieti inputus su onChange ir value
+
+
+## Add yup - validacijos paketas
+
+1. `npm install yup`
+2. import * as Yup from 'yup'
