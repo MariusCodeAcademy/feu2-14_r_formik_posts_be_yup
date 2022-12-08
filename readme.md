@@ -49,3 +49,11 @@
 i 
 `<InputError error={formik.errors.image} touched={formik.touched.image} />`
 4. vietoj `formik.touched.image && formik.errors.image ? 'inputErrorField' : ''` className padaryti su pagalbine funkcija getErrorClass(formik, 'image')
+
+
+## more practice
+
+1. sukurti puslapi PostsPage
+2. sukurti komponenta SinglePost kuris atvaizduos posta su siek tiek stiliaus.(atvaizuos is objekto pavaizduoto virsuje )
+3. PostsPage tik uzsikrovus psl siustis postus is public/db/database.json ir issaugoti state.
+4. PostsPage generuoti SinglePost use paduodant jiems duomenis is state
