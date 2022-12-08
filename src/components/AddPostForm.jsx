@@ -10,6 +10,16 @@ function AddPostForm(props) {
       reactions: 0,
       userId: 1,
     },
+    validationSchema: Yup.object().shape({
+      image: Yup.string()
+        .min(5, 'Ne maziau nei 5 simboliai')
+        .max(120)
+        .required('Privalomas laukas'),
+      title: Yup.string().min(4).max(20).required(),
+      body: '', // string, min 10 simboliu, privalomas laukas
+      reactions: 0, // skaicius, teigiamas, sveikasis skaicius, max 15 privalomas
+      userId: 1, // skaicius, teigiamas, nuo 1 iki 5 privalomas
+    }),
     onSubmit: (values) => {
       console.log('values ===', values);
       // alert(JSON.stringify(values, null, 2));
