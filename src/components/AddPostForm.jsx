@@ -77,18 +77,24 @@ function AddPostForm(props) {
           <p className='inputErroMsg'>{formik.errors.title}</p>
         )}
         <textarea
-          className={formik.errors.body ? 'inputErrorField' : ''}
+          className={
+            formik.touched.body && formik.errors.body ? 'inputErrorField' : ''
+          }
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
           value={formik.values.body}
           name='body'
           placeholder='Your text'
         ></textarea>
-        {formik.errors.body && (
+        {formik.touched.body && formik.errors.body && (
           <p className='inputErroMsg'>{formik.errors.body}</p>
         )}
         <input
-          className={formik.errors.reactions ? 'inputErrorField' : ''}
+          className={
+            formik.touched.reactions && formik.errors.reactions
+              ? 'inputErrorField'
+              : ''
+          }
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
           value={formik.values.reactions}
@@ -96,7 +102,7 @@ function AddPostForm(props) {
           placeholder='Reactions'
           name='reactions'
         />
-        {formik.errors.reactions && (
+        {formik.touched.reactions && formik.errors.reactions && (
           <p className='inputErroMsg'>{formik.errors.reactions}</p>
         )}
         <input
