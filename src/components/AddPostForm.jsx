@@ -9,6 +9,7 @@ function AddPostForm(props) {
       title: '',
       body: '',
       reactions: 0,
+      tags: '',
       userId: 1,
     },
     validationSchema: Yup.object().shape({
@@ -24,7 +25,11 @@ function AddPostForm(props) {
     }),
     onSubmit: (values) => {
       console.log('values ===', values);
+
       // alert(JSON.stringify(values, null, 2));
+
+      // sutvarkyti tags
+
       // siusti duomenis su fetch
       // sendDataFetch(values)
       // jei sekmingai nusiuntem tai console log sekme
@@ -109,6 +114,13 @@ function AddPostForm(props) {
         {formik.touched.reactions && formik.errors.reactions && (
           <p className='inputErroMsg'>{formik.errors.reactions}</p>
         )}
+        {/* prideti dar viea inputa
+        text, jame validacija min 3 raides
+        jame vartotojas iraso tagus atskirtus kableliais
+        value="food, sport, jump up, buy smth"
+        mes padarom masyva su reikmem
+        ['food', 'sport', 'jump up', 'buy smth']
+        */}
         <input
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
