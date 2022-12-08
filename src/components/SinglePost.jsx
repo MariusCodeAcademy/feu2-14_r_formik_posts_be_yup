@@ -10,10 +10,12 @@ const dummyPost = {
   reactions: 2,
 };
 function SinglePost(props) {
+  const p = props.post;
+  const { image, title } = props.post;
   return (
-    <article className='singlePost'>
-      <img src='' alt='post image' />
-      <h3>SinglePost title</h3>
+    <article className='singlePost card'>
+      <img src={image} alt='post image' />
+      <h3>{title}</h3>
       <p className='singleBody'>post text</p>
       <p className='reactions'>likes: 5</p>
       <ul>
