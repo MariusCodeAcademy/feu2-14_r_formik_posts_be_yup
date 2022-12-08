@@ -9,6 +9,10 @@ function AddPostForm(props) {
       reactions: 0,
       userId: 1,
     },
+    onSubmit: (values) => {
+      console.log('values ===', values);
+      // alert(JSON.stringify(values, null, 2));
+    },
   });
   /*
   reikalingi input
@@ -19,12 +23,12 @@ function AddPostForm(props) {
   "userId"
   */
 
-  console.log('formik.values ===', formik.values);
+  // console.log('formik.values ===', formik.values);
   return (
     <div>
       <h2>Create post</h2>
 
-      <form className='card'>
+      <form onSubmit={formik.handleSubmit} className='card'>
         <input
           onChange={formik.handleChange}
           value={formik.values.image}
