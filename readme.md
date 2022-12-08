@@ -35,3 +35,17 @@
 
 1. `npm install yup`
 2. import * as Yup from 'yup'
+
+## Practice
+
+1. prideti likusiem inputams klaidas su touched
+2. prideti kad klases generuotusi su touched
+3. pakeisti klaidos jsx 
+```javascript
+{formik.touched.image && formik.errors.image && (
+  <p className='inputErroMsg'>{formik.errors.image}</p>
+)}
+```
+i 
+`<InputError error={formik.errors.image} touched={formik.touched.image} />`
+4. vietoj `formik.touched.image && formik.errors.image ? 'inputErrorField' : ''` className padaryti su pagalbine funkcija getErrorClass(formik, 'image')
