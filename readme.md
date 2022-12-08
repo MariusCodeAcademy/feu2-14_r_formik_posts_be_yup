@@ -49,7 +49,7 @@
 i 
 `<InputError error={formik.errors.image} touched={formik.touched.image} />`
 4. vietoj `formik.touched.image && formik.errors.image ? 'inputErrorField' : ''` className padaryti su pagalbine funkcija getErrorClass(formik, 'image')
-
+5. padaryti kad veiktu (level2) error `<InputError formik={formik} field={'title'} />`
 
 ## more practice
 

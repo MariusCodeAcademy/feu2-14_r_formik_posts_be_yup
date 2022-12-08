@@ -1,5 +1,6 @@
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
+import InputError from './InputError';
 
 function AddPostForm(props) {
   const formik = useFormik({
@@ -24,6 +25,11 @@ function AddPostForm(props) {
     onSubmit: (values) => {
       console.log('values ===', values);
       // alert(JSON.stringify(values, null, 2));
+      // siusti duomenis su fetch
+      // sendDataFetch(values)
+      // jei sekmingai nusiuntem tai console log sekme
+      // mes norim naviguoti i PostsPage su react-router is AddPostsPage
+      // jei ne tai nesekme
     },
   });
   /*
@@ -57,9 +63,7 @@ function AddPostForm(props) {
           placeholder='Image'
           name='image'
         />
-        {formik.touched.image && formik.errors.image && (
-          <p className='inputErroMsg'>{formik.errors.image}</p>
-        )}
+        <InputError error={formik.errors.image} touch={formik.touched.image} />
         {/* sukurti InputError componenta kuris gaves props error, atvaizduos klaidos p taga */}
         {/* pvz <InputError error={formik.errors.image} /> */}
         <input
@@ -73,9 +77,9 @@ function AddPostForm(props) {
           placeholder='Title'
           name='title'
         />
-        {formik.touched.title && formik.errors.title && (
-          <p className='inputErroMsg'>{formik.errors.title}</p>
-        )}
+
+        {/* level2 error <InputError formik={formik} field={'title'} /> */}
+        <InputError error={formik.errors.title} touch={formik.touched.title} />
         <textarea
           className={
             formik.touched.body && formik.errors.body ? 'inputErrorField' : ''
