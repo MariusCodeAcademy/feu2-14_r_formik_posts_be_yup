@@ -46,7 +46,7 @@ function AddPostForm(props) {
 
       <form onSubmit={formik.handleSubmit} className='card'>
         <input
-          className='inputErrorField'
+          className=''
           onChange={formik.handleChange}
           value={formik.values.image}
           type='text'
@@ -56,6 +56,8 @@ function AddPostForm(props) {
         {formik.errors.image && (
           <p className='inputErroMsg'>{formik.errors.image}</p>
         )}
+        {/* sukurti InputError componenta kuris gaves props error, atvaizduos klaidos p taga */}
+        {/* pvz <InputError error={formik.errors.image} /> */}
         <input
           onChange={formik.handleChange}
           value={formik.values.title}
