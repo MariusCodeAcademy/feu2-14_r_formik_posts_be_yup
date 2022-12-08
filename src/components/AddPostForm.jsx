@@ -12,13 +12,14 @@ function AddPostForm(props) {
     },
     validationSchema: Yup.object().shape({
       image: Yup.string()
+        .trim()
         .min(5, 'Ne maziau nei 5 simboliai')
         .max(120)
         .required('Privalomas laukas'),
       title: Yup.string().min(4).max(20).required(),
-      body: '', // string, min 10 simboliu, privalomas laukas
-      reactions: 0, // skaicius, teigiamas, sveikasis skaicius, max 15 privalomas
-      userId: 1, // skaicius, teigiamas, nuo 1 iki 5 privalomas
+      body: Yup.string().min(10).required(), // string, min 10 simboliu, privalomas laukas
+      reactions: Yup.number().positive().integer().required().max(15), // skaicius, teigiamas, sveikasis skaicius, max 15 privalomas
+      userId: Yup.number().positive().max(5).required(), // skaicius, teigiamas, nuo 1 iki 5 privalomas
     }),
     onSubmit: (values) => {
       console.log('values ===', values);
@@ -35,18 +36,26 @@ function AddPostForm(props) {
   */
 
   // console.log('formik.values ===', formik.values);
+
+  // sudeti likusiems inputams klaidu atvaizdavima
+  // extra prideti inputui klase inputErrorField jei jame yra klaida
+  console.log('formik.errors ===', formik.errors);
   return (
     <div>
       <h2>Create post</h2>
 
       <form onSubmit={formik.handleSubmit} className='card'>
         <input
+          className='inputErrorField'
           onChange={formik.handleChange}
           value={formik.values.image}
           type='text'
           placeholder='Image'
           name='image'
         />
+        {formik.errors.image && (
+          <p className='inputErroMsg'>{formik.errors.image}</p>
+        )}
         <input
           onChange={formik.handleChange}
           value={formik.values.title}
