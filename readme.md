@@ -21,3 +21,11 @@
     "reactions": 2
   },
 ```
+
+## Add formik
+
+1. `npm install formik`
+2. import useFormik hook and add configuration object
+3. initialValues: pradindes input reiksmes
+4. onSubmit - kas vyks pateikiant forma
+5. susieti inputus su onChange ir value
