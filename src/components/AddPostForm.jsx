@@ -39,6 +39,10 @@ function AddPostForm(props) {
         console.log('dataInJs ===', dataInJs);
       });
 
+      // data visada bus promise jei be then ir/ar async await
+      // const data = sendFetch(values);
+      // console.log('data ===', data);
+
       // sendDataFetch(values)
       // jei sekmingai nusiuntem tai console log sekme
       // mes norim naviguoti i PostsPage su react-router is AddPostsPage

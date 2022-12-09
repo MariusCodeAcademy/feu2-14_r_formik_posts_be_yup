@@ -25,5 +25,6 @@ export function sendFetch(whatToSend) {
     body: JSON.stringify(whatToSend),
   })
     .then((res) => res.json())
+    .then((data) => data)
     .catch(console.warn);
 }
