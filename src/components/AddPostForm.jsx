@@ -2,8 +2,10 @@ import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import InputError from './InputError';
 import { sendFetch, stringTagsToArr } from './../helper/helper';
+import { useHistory } from 'react-router-dom';
 
 function AddPostForm(props) {
+  const history = useHistory();
   const formik = useFormik({
     initialValues: {
       image: 'https://picsum.photos/id/17/200/300',
@@ -37,6 +39,13 @@ function AddPostForm(props) {
       // siusti duomenis su fetch
       sendFetch(values).then((dataInJs) => {
         console.log('dataInJs ===', dataInJs);
+        // jei sekmingai sukurem tai status 201 ir dataInJs tures id
+        if (dataInJs.id) {
+          // sekmingai sukurem post
+          confirm('postas sukurtas sekmingai');
+          // redirect to /posts kai sekmingai sukurta
+          history.push('/posts');
+        }
       });
 
       // data visada bus promise jei be then ir/ar async await
