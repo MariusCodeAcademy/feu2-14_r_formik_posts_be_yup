@@ -14,7 +14,7 @@
     "id": 1,
     "image": "https://github.com/MariusCodeAcademy/posts-rest-json-server/blob/main/assets/html.jpg?raw=true",
     "title": "What is HTML?",
-    "body": "HTML is a programming language that stands for Hypertext Markup Language. ,
+    "body": "HTML is a programming language that stands for Hypertext Markup Language." ,
     "archived": false,
     "userId": 9,
     "tags": ["front-end", "web-development"],
@@ -85,3 +85,7 @@ i
 
 ## nuoroda i singlePostPage
 <Link to='/posts/5'>Read more</Link>
+
+## 404 page 
+
+1. padaryti Not found page kuris atsidaro jei nerastas psl.
