@@ -31,7 +31,8 @@ export function sendFetch(whatToSend) {
 }
 
 export function getPosts() {
-  const url = 'http://localhost:8001/posts';
+  // pakeisti url taip kad naujausi postai butu virsuje (rikiuojam pagal id)
+  const url = 'http://localhost:8001/posts?_sort=id&_order=desc';
   return fetch(url)
     .then((resp) => resp.json())
     .catch((err) => console.warn('some problem', err));
