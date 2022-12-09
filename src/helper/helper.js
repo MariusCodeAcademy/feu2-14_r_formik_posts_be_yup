@@ -29,3 +29,10 @@ export function sendFetch(whatToSend) {
     .then((data) => data)
     .catch(console.warn);
 }
+
+export function getPosts() {
+  const url = 'http://localhost:8001/posts';
+  return fetch(url)
+    .then((resp) => resp.json())
+    .catch((err) => console.warn('some problem', err));
+}
