@@ -10,13 +10,20 @@ function PostsPage(props) {
 
   // aprasyti useEffekta kurispasileidzia tik viena kartu sukurus komponenta ([])
   useEffect(() => {
+    getLatestPosts();
+  }, []);
+
+  function getLatestPosts() {
     getPosts().then((dataInJs) => {
       console.log('dataInJs ===', dataInJs);
       setPostsArr(dataInJs);
     });
-  }, []);
+  }
 
   // PostsPage sukurti deletePostHandler fn kuri argumentu gauna id to post kuri norima istrinti
+  function deletePostHandler(idOfPostToBeDeleted) {
+    console.log('deletePostHandler called ', idOfPostToBeDeleted);
+  }
   // iskonsolinti id posto kuri norim istrinti.
   // turedami id mes siunciam DELETE requesta i /posts/{postId}
   // jei gaunam sekminga atsakyma parsisiunciam naujausia postu masyvo versija is back end
@@ -27,7 +34,11 @@ function PostsPage(props) {
 
       <div className='grid'>
         {postsArr.map((pObj) => (
-          <SinglePost key={pObj.id} post={pObj} />
+          <SinglePost
+            key={pObj.id}
+            post={pObj}
+            onDelete={() => deletePostHandler(pObj.id)}
+          />
         ))}
       </div>
     </div>

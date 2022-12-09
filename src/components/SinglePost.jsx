@@ -30,12 +30,14 @@ function SinglePost(props) {
 
       {/* jei tai single post tai reikia back mygtuko jei ne tai read more */}
       {props.isSingle ? (
-        <button onClick={() => history.push('/posts')}>Go back</button>
+        <button onClick={() => history.push('/posts')}>
+          &lt;&lt;&lt; Go back
+        </button>
       ) : (
         <Link to={`/posts/${p.id}`}>Read more &gt;&gt; </Link>
       )}
       <br />
-      <button>Delete post X</button>
+      <button onClick={props.onDelete}>Delete post X</button>
     </article>
   );
 }

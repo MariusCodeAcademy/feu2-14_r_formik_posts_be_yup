@@ -12,11 +12,15 @@ function SinglePostPage(props) {
   const [currentPost, setCurrentPost] = useState({});
   // useEffecte parsisiusti vieno posto duomenis is be/posts/id
   useEffect(() => {
+    getLatestPost();
+  }, []);
+
+  function getLatestPost() {
     getPosts(`posts/${postId}`).then((data) => {
       console.log('data ===', data);
       setCurrentPost(data);
     });
-  }, []);
+  }
   // nupiesti single posta
   return (
     <div>
