@@ -2,14 +2,26 @@ import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import InputError from './InputError';
 
+function stringTagsToArr(str) {
+  // str === "html, css, node"
+  // ['html', 'css', 'node']
+  const tagArr = str.split(',');
+  console.log('tagArr ===', tagArr);
+  const arrWithNoWhiteSpace = tagArr.map((tag) => tag.trim());
+  console.log('arrWithNoWhiteSpace ===', arrWithNoWhiteSpace);
+  // const noEmptyTags = arrWithNoWhiteSpace.
+  return arrWithNoWhiteSpace;
+}
+
 function AddPostForm(props) {
   const formik = useFormik({
     initialValues: {
-      image: '',
-      title: '',
-      body: '',
-      reactions: 0,
-      tags: '',
+      image: 'https://picsum.photos/id/17/200/300',
+      title: 'The main road',
+      body: 'Post about the main road',
+      reactions: 4,
+      tagsStringInput: '',
+      tags: [],
       userId: 1,
     },
     validationSchema: Yup.object().shape({
@@ -21,6 +33,7 @@ function AddPostForm(props) {
       title: Yup.string().min(4).max(20).required(),
       body: Yup.string().min(10).required(), // string, min 10 simboliu, privalomas laukas
       reactions: Yup.number().positive().integer().required().max(15), // skaicius, teigiamas, sveikasis skaicius, max 15 privalomas
+      tagsStringInput: Yup.string().min(3),
       userId: Yup.number().positive().max(5).required(), // skaicius, teigiamas, nuo 1 iki 5 privalomas
     }),
     onSubmit: (values) => {
@@ -29,6 +42,7 @@ function AddPostForm(props) {
       // alert(JSON.stringify(values, null, 2));
 
       // sutvarkyti tags
+      values.tags = stringTagsToArr(values.tagsStringInput);
 
       // siusti duomenis su fetch
       // sendDataFetch(values)
@@ -83,7 +97,7 @@ function AddPostForm(props) {
           name='title'
         />
 
-        {/* level2 error <InputError formik={formik} field={'title'} /> */}
+        {/* level2 error TODO: <InputError formik={formik} field={'title'} /> */}
         <InputError error={formik.errors.title} touch={formik.touched.title} />
         <textarea
           className={
@@ -121,6 +135,23 @@ function AddPostForm(props) {
         mes padarom masyva su reikmem
         ['food', 'sport', 'jump up', 'buy smth']
         */}
+        <input
+          className={
+            formik.touched.tagsStringInput && formik.errors.tagsStringInput
+              ? 'inputErrorField'
+              : ''
+          }
+          placeholder='Enter comma separated tags'
+          onChange={formik.handleChange}
+          onBlur={formik.handleBlur}
+          value={formik.values.tagsStringInput}
+          type='text'
+          name='tagsStringInput'
+        />
+        <InputError
+          error={formik.errors.tagsStringInput}
+          touch={formik.touched.tagsStringInput}
+        />
         <input
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
