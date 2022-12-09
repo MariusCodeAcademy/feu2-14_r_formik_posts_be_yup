@@ -18,7 +18,8 @@ export function stringTagsToArr(str) {
 }
 
 export function sendFetch(whatToSend) {
-  const url = 'https://dummyjson.com/posts/add';
+  let url = 'https://dummyjson.com/posts/add';
+  url = 'http://localhost:8001/posts';
   return fetch(url, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
