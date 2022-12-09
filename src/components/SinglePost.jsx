@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 const dummyPost = {
   id: 1,
   image:
@@ -24,6 +26,9 @@ function SinglePost(props) {
           <li key={tag}>{tag}</li>
         ))}
       </ul>
+      {/* nuoroda i singlePostPage */}
+      <Link to='#'>Read more</Link>
+      <button>Delete post X</button>
     </article>
   );
 }
