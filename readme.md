@@ -57,3 +57,20 @@ i
 2. sukurti komponenta SinglePost kuris atvaizduos posta su siek tiek stiliaus.(atvaizuos is objekto pavaizduoto virsuje )
 3. PostsPage tik uzsikrovus psl siustis postus is public/db/database.json ir issaugoti state.
 4. PostsPage generuoti SinglePost use paduodant jiems duomenis is state
+
+
+## CRUD
+
+1. Create - create post - POST /posts
+2. Read - read posts - GET /posts
+3. ReadsiglePost - GET /posts/5
+4. Delete - delete post - DELETE /posts/5
+
+
+
+## DELETE 
+
+// PostsPage sukurti deletePostHandler fn kuri argumentu gauna id to post kuri norima istrinti
+// iskonsolinti id posto kuri norim istrinti.
+// turedami id mes siunciam DELETE requesta i /posts/{postId}
+// jei gaunam sekminga atsakyma parsisiunciam naujausia postu masyvo versija is back end
