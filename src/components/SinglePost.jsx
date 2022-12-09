@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 
 const dummyPost = {
   id: 1,
@@ -12,6 +12,7 @@ const dummyPost = {
   reactions: 2,
 };
 function SinglePost(props) {
+  const history = useHistory();
   const p = props.post;
   // const { image, title } = props.post;
   return (
@@ -29,7 +30,7 @@ function SinglePost(props) {
 
       {/* jei tai single post tai reikia back mygtuko jei ne tai read more */}
       {props.isSingle ? (
-        <button>Go back</button>
+        <button onClick={() => history.push('/posts')}>Go back</button>
       ) : (
         <Link to={`/posts/${p.id}`}>Read more &gt;&gt; </Link>
       )}
