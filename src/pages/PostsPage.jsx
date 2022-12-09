@@ -15,13 +15,16 @@ function PostsPage(props) {
       setPostsArr(dataInJs);
     });
   }, []);
-  //
+
+  // PostsPage sukurti deletePostHandler fn kuri argumentu gauna id to post kuri norima istrinti
+  // iskonsolinti id posto kuri norim istrinti.
+  // turedami id mes siunciam DELETE requesta i /posts/{postId}
+  // jei gaunam sekminga atsakyma parsisiunciam naujausia postu masyvo versija is back end
 
   return (
     <div>
       <h1>PostsPage</h1>
 
-      <p>cia generuosim single card</p>
       <div className='grid'>
         {postsArr.map((pObj) => (
           <SinglePost key={pObj.id} post={pObj} />
