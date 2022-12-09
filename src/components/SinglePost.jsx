@@ -22,12 +22,17 @@ function SinglePost(props) {
       <p className='singleBody'>{p.body}</p>
       <p className='reactions'>likes: {p.reactions}</p>
       <ul>
-        {p.tags.map((tag) => (
+        {p.tags?.map((tag) => (
           <li key={tag}>{tag}</li>
         ))}
       </ul>
-      {/* nuoroda i singlePostPage */}
-      <Link to={`/posts/${p.id}`}>Read more</Link>
+
+      {/* jei tai single post tai reikia back mygtuko jei ne tai read more */}
+      {props.isSingle ? (
+        <button>Go back</button>
+      ) : (
+        <Link to={`/posts/${p.id}`}>Read more &gt;&gt; </Link>
+      )}
       <br />
       <button>Delete post X</button>
     </article>
