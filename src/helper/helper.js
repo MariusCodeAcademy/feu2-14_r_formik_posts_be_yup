@@ -17,6 +17,8 @@ export function stringTagsToArr(str) {
   return noEmptyTags;
 }
 
+const BASE_URL = 'http://localhost:8001';
+
 export function sendFetch(whatToSend) {
   let url = 'https://dummyjson.com/posts/add';
   url = 'http://localhost:8001/posts';
@@ -30,10 +32,10 @@ export function sendFetch(whatToSend) {
     .catch(console.warn);
 }
 
-export function getPosts() {
+export function getPosts(endpoint = 'posts') {
   // pakeisti url taip kad naujausi postai butu virsuje (rikiuojam pagal id)
-  const url = 'http://localhost:8001/posts?_sort=id&_order=desc';
-  return fetch(url)
+  // const url = 'http://localhost:8001/posts?_sort=id&_order=desc';
+  return fetch(`${BASE_URL}/${endpoint}`)
     .then((resp) => resp.json())
     .catch((err) => console.warn('some problem', err));
 }
