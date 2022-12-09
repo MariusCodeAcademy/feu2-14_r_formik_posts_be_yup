@@ -74,3 +74,14 @@ i
 // iskonsolinti id posto kuri norim istrinti.
 // turedami id mes siunciam DELETE requesta i /posts/{postId}
 // jei gaunam sekminga atsakyma parsisiunciam naujausia postu masyvo versija is back end
+
+## SinglePostPage
+// SinglePostPage
+// pasiimti dinamini route parametra :postId
+// susikurti state
+// useEffecte parsisiusti vieno posto duomenis is be/posts/id
+// nupiesti single posta
+
+
+## nuoroda i singlePostPage
+<Link to='/posts/5'>Read more</Link>
