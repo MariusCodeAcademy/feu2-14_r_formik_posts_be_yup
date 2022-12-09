@@ -1,7 +1,7 @@
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import InputError from './InputError';
-import { stringTagsToArr } from './../helper/helper';
+import { sendFetch, stringTagsToArr } from './../helper/helper';
 
 function AddPostForm(props) {
   const formik = useFormik({
@@ -35,6 +35,10 @@ function AddPostForm(props) {
       values.tags = stringTagsToArr(values.tagsStringInput);
 
       // siusti duomenis su fetch
+      sendFetch(values).then((dataInJs) => {
+        console.log('dataInJs ===', dataInJs);
+      });
+
       // sendDataFetch(values)
       // jei sekmingai nusiuntem tai console log sekme
       // mes norim naviguoti i PostsPage su react-router is AddPostsPage

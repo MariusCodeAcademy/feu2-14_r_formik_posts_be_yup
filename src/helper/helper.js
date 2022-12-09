@@ -19,11 +19,11 @@ export function stringTagsToArr(str) {
 
 export function sendFetch(whatToSend) {
   const url = 'https://dummyjson.com/posts/add';
-  fetch(url, {
+  return fetch(url, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(whatToSend),
   })
     .then((res) => res.json())
-    .then(console.warn);
+    .catch(console.warn);
 }
