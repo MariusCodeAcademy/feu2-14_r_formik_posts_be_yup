@@ -11,16 +11,18 @@ const dummyPost = {
 };
 function SinglePost(props) {
   const p = props.post;
-  const { image, title } = props.post;
+  // const { image, title } = props.post;
   return (
     <article className='singlePost card'>
-      <img src={image} alt='post image' />
-      <h3>{title}</h3>
-      <p className='singleBody'>post text</p>
-      <p className='reactions'>likes: 5</p>
+      {p.image && <img src={p.image} alt='post image' />}
+      {!p.image && <img src='https://placehold.co/400' alt='no image' />}
+      <h3>{p.title}</h3>
+      <p className='singleBody'>{p.body}</p>
+      <p className='reactions'>likes: {p.reactions}</p>
       <ul>
-        <li>front-end</li>
-        <li>web-development</li>
+        {p.tags.map((tag) => (
+          <li key={tag.id}>{tag}</li>
+        ))}
       </ul>
     </article>
   );
