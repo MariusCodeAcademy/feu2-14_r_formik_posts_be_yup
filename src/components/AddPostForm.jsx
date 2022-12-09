@@ -1,19 +1,7 @@
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import InputError from './InputError';
-
-function stringTagsToArr(str) {
-  // str === "html, css, node"
-  // ['html', 'css', 'node']
-  const tagArr = str.split(',');
-  console.log('tagArr ===', tagArr);
-  const arrWithNoWhiteSpace = tagArr.map((tag) => tag.trim());
-  console.log('arrWithNoWhiteSpace ===', arrWithNoWhiteSpace);
-  // ['0', 'blue', '', 'green', 'sun', '']
-  const noEmptyTags = arrWithNoWhiteSpace.filter((tag) => tag.length);
-  console.log('noEmptyTags ===', noEmptyTags);
-  return noEmptyTags;
-}
+import { stringTagsToArr } from './../helper/helper';
 
 function AddPostForm(props) {
   const formik = useFormik({
