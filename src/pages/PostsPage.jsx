@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useState } from 'react';
 import SinglePost from '../components/SinglePost';
-import { getPosts } from './../helper/helper';
+import { getPosts, sendDelete, sendDeletePatch } from './../helper/helper';
 
 function PostsPage(props) {
   // 3. PostsPage tik uzsikrovus psl siustis postus is public/db/database.json ir issaugoti state.
@@ -23,6 +23,9 @@ function PostsPage(props) {
   // PostsPage sukurti deletePostHandler fn kuri argumentu gauna id to post kuri norima istrinti
   function deletePostHandler(idOfPostToBeDeleted) {
     console.log('deletePostHandler called ', idOfPostToBeDeleted);
+    sendDeletePatch(idOfPostToBeDeleted).then((deleteResult) => {
+      console.log('deleteResult ===', deleteResult);
+    });
   }
   // iskonsolinti id posto kuri norim istrinti.
   // turedami id mes siunciam DELETE requesta i /posts/{postId}
@@ -34,11 +37,7 @@ function PostsPage(props) {
 
       <div className='grid'>
         {postsArr.map((pObj) => (
-          <SinglePost
-            key={pObj.id}
-            post={pObj}
-            onDelete={() => deletePostHandler(pObj.id)}
-          />
+          <SinglePost key={pObj.id} post={pObj} onDelete={deletePostHandler} />
         ))}
       </div>
     </div>

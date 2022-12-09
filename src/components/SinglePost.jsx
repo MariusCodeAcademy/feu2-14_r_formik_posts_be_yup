@@ -37,7 +37,9 @@ function SinglePost(props) {
         <Link to={`/posts/${p.id}`}>Read more &gt;&gt; </Link>
       )}
       <br />
-      <button onClick={props.onDelete}>Delete post X</button>
+      {!props.isSingle && (
+        <button onClick={() => props.onDelete(p.id)}>Delete post X</button>
+      )}
     </article>
   );
 }

@@ -32,6 +32,34 @@ export function sendFetch(whatToSend) {
     .catch(console.warn);
 }
 
+export function sendDelete(id) {
+  return fetch(`${BASE_URL}/posts/${id}`, {
+    method: 'DELETE',
+    headers: {
+      'Content-type': 'application/json; charset=UTF-8',
+    },
+  })
+    .then((resp) => {
+      console.log('resp ===', resp);
+    })
+    .catch(console.warn);
+}
+export function sendDeletePatch(id) {
+  return fetch(`${BASE_URL}/posts/${id}`, {
+    method: 'PATCH',
+    headers: {
+      'Content-type': 'application/json; charset=UTF-8',
+    },
+    body: JSON.stringify({
+      archived: true,
+    }),
+  })
+    .then((resp) => {
+      console.log('resp ===', resp);
+    })
+    .catch(console.warn);
+}
+
 export function getPosts(endpoint = 'posts') {
   // pakeisti url taip kad naujausi postai butu virsuje (rikiuojam pagal id)
   // const url = 'http://localhost:8001/posts?_sort=id&_order=desc';
