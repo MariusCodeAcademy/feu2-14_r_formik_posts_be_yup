@@ -9,8 +9,10 @@ function stringTagsToArr(str) {
   console.log('tagArr ===', tagArr);
   const arrWithNoWhiteSpace = tagArr.map((tag) => tag.trim());
   console.log('arrWithNoWhiteSpace ===', arrWithNoWhiteSpace);
-  // const noEmptyTags = arrWithNoWhiteSpace.
-  return arrWithNoWhiteSpace;
+  // ['0', 'blue', '', 'green', 'sun', '']
+  const noEmptyTags = arrWithNoWhiteSpace.filter((tag) => tag.length);
+  console.log('noEmptyTags ===', noEmptyTags);
+  return noEmptyTags;
 }
 
 function AddPostForm(props) {
