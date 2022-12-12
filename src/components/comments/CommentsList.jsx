@@ -4,6 +4,7 @@ import SingleComment from './SingleComment';
 
 function CommentsList(props) {
   const [commentsArr, setCommentsArr] = useState([]);
+  const weHaveNoComments = commentsArr.length === 0;
   // pasiimti postId
   const currentPostId = props.postId;
 
@@ -17,6 +18,7 @@ function CommentsList(props) {
   // console.log('commentsArr ===', commentsArr);
 
   // CommentsList grazinti null jei commentaru nera
+  if (weHaveNoComments) return null;
 
   return (
     <div className='card'>
