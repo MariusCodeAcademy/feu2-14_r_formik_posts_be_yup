@@ -67,7 +67,7 @@ export function getPosts(endpoint = 'posts') {
 }
 
 export function getComments(postId, endpoint = 'comments') {
-  return fetch(`${BASE_URL}/${endpoint}?postId=${postId}`)
+  return fetch(`${BASE_URL}/${endpoint}?postId=${postId}&_sort=id&_order=desc`)
     .then((resp) => resp.json())
     .catch((err) => console.warn('getComments some problem', err));
 }
