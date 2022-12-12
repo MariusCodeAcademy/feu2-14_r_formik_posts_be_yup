@@ -14,6 +14,7 @@ function AddCommentForm(props) {
       // submiting the form create timeStamp for the DATE
       values.date = new Date();
       console.log('values ===', values);
+      props.onNewComment();
     },
   });
   // add formik to controll the form

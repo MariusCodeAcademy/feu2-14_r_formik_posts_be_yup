@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import AddCommentForm from '../components/comments/AddCommentForm';
 import CommentsList from '../components/comments/CommentsList';
 import SinglePost from '../components/SinglePost';
-import { getPosts } from './../helper/helper';
+import { getComments, getPosts } from './../helper/helper';
 
 function SinglePostPage(props) {
   // SinglePostPage
@@ -24,12 +24,23 @@ function SinglePostPage(props) {
     });
   }
 
+  // Comments stuff
+  const [commentsArr, setCommentsArr] = useState([]);
+
+  useEffect(() => {
+    getComments(postId).then((commentsGot) => setCommentsArr(commentsGot));
+  }, []);
+
+  function handleNewComment() {
+    console.log('handleNewComment');
+  }
+
   return (
     <div>
       <h1>SinglePostPage {postId}</h1>
       <SinglePost post={currentPost} isSingle />
-      <AddCommentForm postId={postId} />
-      <CommentsList postId={postId} />
+      <AddCommentForm onNewComment={handleNewComment} postId={postId} />
+      <CommentsList items={commentsArr} />
     </div>
   );
 }

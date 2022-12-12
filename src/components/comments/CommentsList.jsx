@@ -1,19 +1,10 @@
-import { useState, useEffect } from 'react';
-import { getComments } from '../../helper/helper';
 import SingleComment from './SingleComment';
 
 function CommentsList(props) {
-  const [commentsArr, setCommentsArr] = useState([]);
-  const weHaveNoComments = commentsArr.length === 0;
-  // pasiimti postId
-  const currentPostId = props.postId;
+  const weHaveNoComments = props.items.length === 0;
 
   // kreiptis su fetch parsisiusti komentarus
-  useEffect(() => {
-    getComments(currentPostId).then((commentsGot) =>
-      setCommentsArr(commentsGot)
-    );
-  }, []);
+
   // ir parsisiunte noresim juos atvaizduoti
   // console.log('commentsArr ===', commentsArr);
 
@@ -24,7 +15,7 @@ function CommentsList(props) {
     <div className='card'>
       <h2>Read our comments</h2>
       <ul className='unlisted'>
-        {commentsArr.map((cObj) => (
+        {props.items.map((cObj) => (
           <SingleComment
             key={cObj.id}
             text={cObj.text}
