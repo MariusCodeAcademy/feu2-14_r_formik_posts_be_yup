@@ -17,7 +17,7 @@ function AddCommentForm(props) {
       date: '',
       postId: props.postId,
     },
-    onSubmit: (values) => {
+    onSubmit: (values, { resetForm }) => {
       // values yra objektas su visom formiko reiksmem aprasytom initalValues
       // submiting the form create timeStamp for the DATE
       values.date = new Date();
@@ -25,9 +25,15 @@ function AddCommentForm(props) {
       sendFetch(values, 'comments').then((sendResult) => {
         console.log('sendResult ===', sendResult);
         // jei yra atsakyme id tai sekmingai sukurem comentara ir atnaujinam comentaru sarasa.
-
-        // isvalyti formos laukuus
-        props.onNewComment();
+        if (sendResult.id) {
+          // sekmingai pridetas komentaras
+          props.onNewComment();
+          // isvalyti formos laukus
+          resetForm();
+        } else {
+          // kazkas negerai nes neturim naujo comentaro id
+          console.warn('kazkas negerai nes neturim naujo comentaro id ');
+        }
       });
     },
   });
