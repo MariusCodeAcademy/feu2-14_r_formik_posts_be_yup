@@ -18,6 +18,8 @@ function CommentsList(props) {
     <div>
       <h2>Read our comments</h2>
       <ul>
+        {/* mapinti per commentsArr ir gaminti SingleComment */}
+        {/* singleCoomment atvaizduoti duomenis is commentArr */}
         <li>comment 1 </li>
         <li>comment 2 </li>
         <li>comment 3 </li>
