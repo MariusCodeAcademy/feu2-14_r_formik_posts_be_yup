@@ -24,6 +24,8 @@ function UsersPage(props) {
       .catch((err) => console.warn('beSearch klaida', err));
   }
 
+  const beOrFe = true ? filteredUsers : usersArr;
+
   return (
     <div>
       <h1>Our users</h1>
@@ -40,7 +42,7 @@ function UsersPage(props) {
       <p>You have searched for: {searchTerm}</p>
       <hr />
       <ul className='unlisted grid'>
-        {usersArr.map((uObj) => (
+        {beOrFe.map((uObj) => (
           <SingleUser key={uObj.id} {...uObj} />
         ))}
       </ul>
