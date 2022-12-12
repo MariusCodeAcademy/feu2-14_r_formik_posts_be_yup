@@ -1,11 +1,17 @@
+import useFetch from '../hooks/useFetch';
+
 function UsersPage(props) {
+  const [usersArr, setUsersArr] = useFetch();
+
+  console.log('usersArr ===', usersArr);
+
   return (
     <div>
       <h1>Our users</h1>
       <ul>
-        <li>user 1 </li>
-        <li>user 1 </li>
-        <li>user 1 </li>
+        {usersArr.map((uObj) => (
+          <li key={uObj.id}>{uObj.name} </li>
+        ))}
       </ul>
     </div>
   );
