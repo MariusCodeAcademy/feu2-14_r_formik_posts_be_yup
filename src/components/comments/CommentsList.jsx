@@ -21,7 +21,7 @@ function CommentsList(props) {
   return (
     <div className='card'>
       <h2>Read our comments</h2>
-      <ul>
+      <ul className='unlisted'>
         {commentsArr.map((cObj) => (
           <SingleComment
             key={cObj.id}

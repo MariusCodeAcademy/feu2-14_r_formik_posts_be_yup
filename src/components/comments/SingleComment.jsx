@@ -3,8 +3,8 @@ function SingleComment({ text, date, author }) {
 
   return (
     <li className='comment'>
-      <h3>{author}</h3>
-      <p>{date}</p>
+      <p className='comment_date'>{date}</p>
+      <h3 className='comment_author'>{author}</h3>
       <p>{text}</p>
     </li>
   );
