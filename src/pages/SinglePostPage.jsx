@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import AddCommentForm from '../components/comments/AddCommentForm';
 import CommentsList from '../components/comments/CommentsList';
 import SinglePost from '../components/SinglePost';
 import { getPosts } from './../helper/helper';
@@ -27,6 +28,7 @@ function SinglePostPage(props) {
     <div>
       <h1>SinglePostPage {postId}</h1>
       <SinglePost post={currentPost} isSingle />
+      <AddCommentForm />
       <CommentsList postId={postId} />
     </div>
   );
