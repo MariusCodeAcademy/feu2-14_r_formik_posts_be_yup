@@ -18,7 +18,7 @@ function SinglePostPage(props) {
 
   function getLatestPost() {
     getPosts(`posts/${postId}`).then((data) => {
-      console.log('data ===', data);
+      // console.log('data ===', data);
       setCurrentPost(data);
     });
   }
@@ -27,7 +27,7 @@ function SinglePostPage(props) {
     <div>
       <h1>SinglePostPage {postId}</h1>
       <SinglePost post={currentPost} isSingle />
-      <CommentsList />
+      <CommentsList postId={postId} />
     </div>
   );
 }

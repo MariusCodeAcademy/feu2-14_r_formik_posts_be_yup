@@ -65,5 +65,11 @@ export function getPosts(endpoint = 'posts') {
   // const url = 'http://localhost:8001/posts?_sort=id&_order=desc';
   return fetch(`${BASE_URL}/${endpoint}?archived=false`)
     .then((resp) => resp.json())
-    .catch((err) => console.warn('some problem', err));
+    .catch((err) => console.warn('getPosts some problem', err));
+}
+
+export function getComments(postId, endpoint = 'comments') {
+  return fetch(`${BASE_URL}/${endpoint}?postId=${postId}`)
+    .then((resp) => resp.json())
+    .catch((err) => console.warn('getComments some problem', err));
 }
