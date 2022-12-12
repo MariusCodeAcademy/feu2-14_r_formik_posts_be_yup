@@ -1,3 +1,4 @@
+import SingleUser from '../components/users/SingleUser';
 import useFetch from '../hooks/useFetch';
 
 function UsersPage(props) {
@@ -8,9 +9,9 @@ function UsersPage(props) {
   return (
     <div>
       <h1>Our users</h1>
-      <ul>
+      <ul className='unlisted grid'>
         {usersArr.map((uObj) => (
-          <li key={uObj.id}>{uObj.name} </li>
+          <SingleUser key={uObj.id} {...uObj} />
         ))}
       </ul>
     </div>
