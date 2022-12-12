@@ -6,6 +6,7 @@ import AddPostPage from './pages/AddPostPage';
 import HomePage from './pages/HomePage';
 import PostsPage from './pages/PostsPage';
 import SinglePostPage from './pages/SinglePostPage';
+import UsersPage from './pages/UsersPage';
 
 function App() {
   return (
@@ -15,6 +16,9 @@ function App() {
       <Switch>
         <Route path={'/posts/:postId'}>
           <SinglePostPage />
+        </Route>
+        <Route path={'/users'}>
+          <UsersPage />
         </Route>
         <Route path={'/posts'}>
           <PostsPage />

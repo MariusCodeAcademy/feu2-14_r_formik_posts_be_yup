@@ -98,4 +98,6 @@ i
 3. Create SingleUser component. 
 4. Loop over users state and create list of users as a grid or list
 5. create filter on top of the list to filter users by name
+   1. filter local state when entering search
+   2. filter from backend when press search btn
 6. create a select input with users towns and filter users upon selection.
