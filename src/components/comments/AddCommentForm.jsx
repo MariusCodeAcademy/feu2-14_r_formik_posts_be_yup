@@ -1,4 +1,5 @@
 import { useFormik } from 'formik';
+import { sendFetch } from '../../helper/helper';
 
 function AddCommentForm(props) {
   // init values for form: author, text, date, postId
@@ -14,7 +15,13 @@ function AddCommentForm(props) {
       // submiting the form create timeStamp for the DATE
       values.date = new Date();
       console.log('values ===', values);
-      props.onNewComment();
+      sendFetch(values, 'comments').then((sendResult) => {
+        console.log('sendResult ===', sendResult);
+        // jei yra atsakyme id tai sekmingai sukurem comentara ir atnaujinam comentaru sarasa.
+
+        // isvalyti formos laukuus
+        props.onNewComment();
+      });
     },
   });
   // add formik to controll the form

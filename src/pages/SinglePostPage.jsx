@@ -33,6 +33,7 @@ function SinglePostPage(props) {
 
   function handleNewComment() {
     console.log('handleNewComment');
+    getComments(postId).then((commentsGot) => setCommentsArr(commentsGot));
   }
 
   return (

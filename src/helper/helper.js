@@ -19,10 +19,8 @@ export function stringTagsToArr(str) {
 
 const BASE_URL = 'http://localhost:8001';
 
-export function sendFetch(whatToSend) {
-  let url = 'https://dummyjson.com/posts/add';
-  url = 'http://localhost:8001/posts';
-  return fetch(url, {
+export function sendFetch(whatToSend, endpoint = 'posts') {
+  return fetch(`${BASE_URL}/${endpoint}`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(whatToSend),
