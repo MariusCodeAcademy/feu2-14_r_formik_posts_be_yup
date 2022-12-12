@@ -4,6 +4,9 @@ function SinglePost(props) {
   const history = useHistory();
   const p = props.post;
   // const { image, title } = props.post;
+
+  // SinglePost paspaudus ant nuotraukos ji veda i SinglePostPage kaip ir read more
+
   return (
     <article className='singlePost card'>
       {p.image && <img src={p.image} alt='post image' />}

@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { getComments } from '../../helper/helper';
+import SingleComment from './SingleComment';
 
 function CommentsList(props) {
   const [commentsArr, setCommentsArr] = useState([]);
@@ -14,15 +15,21 @@ function CommentsList(props) {
   }, []);
   // ir parsisiunte noresim juos atvaizduoti
   // console.log('commentsArr ===', commentsArr);
+
+  // CommentsList grazinti null jei commentaru nera
+
   return (
-    <div>
+    <div className='card'>
       <h2>Read our comments</h2>
       <ul>
-        {/* mapinti per commentsArr ir gaminti SingleComment */}
-        {/* singleCoomment atvaizduoti duomenis is commentArr */}
-        <li>comment 1 </li>
-        <li>comment 2 </li>
-        <li>comment 3 </li>
+        {commentsArr.map((cObj) => (
+          <SingleComment
+            key={cObj.id}
+            text={cObj.text}
+            date={cObj.date}
+            author={cObj.author}
+          />
+        ))}
       </ul>
     </div>
   );
