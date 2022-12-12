@@ -89,3 +89,13 @@ i
 ## 404 page 
 
 1. padaryti Not found page kuris atsidaro jei nerastas psl.
+
+
+## Users resursas 
+
+1. Create a UsersPage.jsx
+2. get all users from http://localhost:8001/users and save to state
+3. Create SingleUser component. 
+4. Loop over users state and create list of users as a grid or list
+5. create filter on top of the list to filter users by name
+6. create a select input with users towns and filter users upon selection.
