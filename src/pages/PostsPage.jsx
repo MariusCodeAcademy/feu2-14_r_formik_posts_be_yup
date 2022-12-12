@@ -25,6 +25,10 @@ function PostsPage(props) {
     console.log('deletePostHandler called ', idOfPostToBeDeleted);
     sendDeletePatch(idOfPostToBeDeleted).then((deleteResult) => {
       console.log('deleteResult ===', deleteResult);
+      if (deleteResult === true) {
+        // parisiiusti postus is naujo
+        getLatestPosts();
+      }
     });
   }
   // iskonsolinti id posto kuri norim istrinti.

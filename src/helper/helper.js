@@ -35,9 +35,6 @@ export function sendFetch(whatToSend) {
 export function sendDelete(id) {
   return fetch(`${BASE_URL}/posts/${id}`, {
     method: 'DELETE',
-    headers: {
-      'Content-type': 'application/json; charset=UTF-8',
-    },
   })
     .then((resp) => {
       console.log('resp ===', resp);
@@ -56,6 +53,9 @@ export function sendDeletePatch(id) {
   })
     .then((resp) => {
       console.log('resp ===', resp);
+      if (resp.status === 200) return true;
+      // return resp.json();
+      console.warn('status is not 200 and there are no catch errror');
     })
     .catch(console.warn);
 }
@@ -63,7 +63,7 @@ export function sendDeletePatch(id) {
 export function getPosts(endpoint = 'posts') {
   // pakeisti url taip kad naujausi postai butu virsuje (rikiuojam pagal id)
   // const url = 'http://localhost:8001/posts?_sort=id&_order=desc';
-  return fetch(`${BASE_URL}/${endpoint}`)
+  return fetch(`${BASE_URL}/${endpoint}?archived=false`)
     .then((resp) => resp.json())
     .catch((err) => console.warn('some problem', err));
 }
