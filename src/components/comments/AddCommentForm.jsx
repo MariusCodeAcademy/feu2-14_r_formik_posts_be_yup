@@ -3,6 +3,13 @@ import { sendFetch } from '../../helper/helper';
 
 function AddCommentForm(props) {
   // init values for form: author, text, date, postId
+
+  // prideti comentaro validacijas:
+  // author: textas, ne maziau 4 raides, privalomas, (extra (kad nebutu skaiciu) )
+  // textas: min 10 simboliu, privalomas
+
+  // atvaizduoti klaidas po inputu ir textarea
+
   const formik = useFormik({
     initialValues: {
       author: '',
