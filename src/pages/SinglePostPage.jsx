@@ -23,12 +23,12 @@ function SinglePostPage(props) {
       setCurrentPost(data);
     });
   }
-  // nupiesti single posta
+
   return (
     <div>
       <h1>SinglePostPage {postId}</h1>
       <SinglePost post={currentPost} isSingle />
-      <AddCommentForm />
+      <AddCommentForm postId={postId} />
       <CommentsList postId={postId} />
     </div>
   );
