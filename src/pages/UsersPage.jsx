@@ -16,6 +16,14 @@ function UsersPage(props) {
     uObj.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
+  function beSearch() {
+    let url = `http://localhost:8001/users?q=${searchTerm}`;
+    fetch(url)
+      .then((resp) => resp.json())
+      .then((gotData) => setUsersArr(gotData))
+      .catch((err) => console.warn('beSearch klaida', err));
+  }
+
   return (
     <div>
       <h1>Our users</h1>
@@ -27,12 +35,12 @@ function UsersPage(props) {
           type='search'
           placeholder='Search'
         />
-        <button>Back end filter</button>
+        <button onClick={beSearch}>Back end filter</button>
       </fieldset>
       <p>You have searched for: {searchTerm}</p>
       <hr />
       <ul className='unlisted grid'>
-        {filteredUsers.map((uObj) => (
+        {usersArr.map((uObj) => (
           <SingleUser key={uObj.id} {...uObj} />
         ))}
       </ul>
