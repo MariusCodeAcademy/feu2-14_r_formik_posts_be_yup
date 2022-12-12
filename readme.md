@@ -101,3 +101,13 @@ i
    1. filter local state when entering search
    2. filter from backend when press search btn
 6. create a select input with users towns and filter users upon selection.
+
+
+## Add post users
+
+1. naujo posto sukurimo formoj, pakeisti userId inputa i selecta.
+2. sugeneruoti selekta is visu useriu duomenu, atvaizduoti vardus pasirinkime ir id kaip value.
+3. pasirinkti useri ir sukurti posta.
+4. Postu kortelese atvaizduoti kas yra posto savininkas.
+5. postu virsuje atvaizuoti selekta su visai zmonemis kurie turi nors viena posta.
+6. pasirinkus kazkuri zmogu atvaizduoti jo postus.
